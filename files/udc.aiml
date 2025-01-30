@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern>HELLO</pattern>
+    <template>
+        <think><set name="hello">true</set></think>
+        Hello there! I am the career advice bot. I will help you decide on a career path for your degree based on your strengths! Type "Let's get started" to start.
+    </template>
+  </category>
+  <category>
+    <pattern>HI</pattern>
+    <template><srai>HELLO</srai></template>
+  </category>
+  
+  <category>
+    <pattern>LET'S GET STARTED</pattern>
+    <random>
+        <li>
+            <condition name="q1">
+                <li value ="false">
+                    <think>
+                        <set name="q1">true</set> 
+                        <set name="currentskill">detail</set> 
+                    </think>
+                
+                    Do you have an attention to detail?
+                </li>
+                
+                <li value="true">
+                    <srai>LET'S GET STARTED</srai>
+                </li>
+            </condition>
+        </li>
+        
+        <li>
+            <condition name="q2">
+                <li value="false">
+                    <think>
+                        <set name="q2">true</set> 
+                        <set name="creative">detail</set> 
+                    </think>
+                    
+                    Are you creative?
+                </li>
+                
+                <li value="true">
+                    <srai>LET'S GET STARTED</srai>
+                </li>
+            </condition>
+        </li>
+        
+        <li>
+            <condition name="q3">
+                <li value="false">
+                    <think>
+                        <set name="q3">true</set>
+                        <set name="coding">detail</set> 
+                    </think>
+                    
+                    Do you have strong coding skills?
+                </li>
+                
+                <li value="true">
+                    <srai>LET'S GET STARTED</srai>
+                </li>
+            </condition>
+        </li>
+        
+        <li>
+            <condition name="q4">
+                <li value="false">
+                    <think>
+                        <set name="q4">true</set>
+                        <set name="currentskill">design</set> 
+                    </think>
+                    
+                    Are you proficient with digital design tools?
+                </li>
+                
+                <li value="true">
+                    <srai>LET'S GET STARTED</srai>
+                </li>
+            </condition>
+        </li>
+        
+        <li>
+            <condition name="q5">
+                <li value="false">
+                    <think>
+                        <set name="q5">true</set>
+                        <set name="currentskill">network</set> 
+                    </think>
+                    
+                    Do you have an understanding of network protocols?
+                </li>
+                
+                <li value="true">
+                    <srai>LET'S GET STARTED</srai>
+                </li>
+            </condition>
+        </li>
+        
+        <li>
+            <condition name="q6" value="false">
+                <li value="false">
+                    <think>
+                        <set name="q6">true</set>
+                        <set name="currentskill">problemsolving</set> 
+                    </think>
+                    
+                    Do you have strong problem solving skills?
+                </li>
+                
+                <li value="true">
+                    <srai>LET'S GET STARTED</srai>
+                </li>
+            </condition>
+        </li>
+        
+        <li>
+            <condition name="q7">
+                <li value="false">
+                    <think>
+                        <set name="q7">true</set>
+                        <set name="currentskill">database</set> 
+                    </think>
+                    
+                    Are you comfortable with databases?
+                </li>
+                
+                <li value="true">
+                    <srai>LET'S GET STARTED</srai>
+                </li>
+            </condition>
+        </li>
+        
+        <li>
+            <condition name="q8">
+                <li value="false">
+                    <think>
+                        <set name="q8">true</set>
+                        <set name="currentskill">troubleshooting</set> 
+                    </think>
+                    
+                    Do you have strong troubleshooting skills?
+                </li>
+                
+                <li value="true">
+                    <srai>LET'S GET STARTED</srai>
+                </li>
+            </condition>
+        </li>
+        
+        <li>
+            <condition name="q9">
+                <li value="false">
+                    <think>
+                        <set name="q9">true</set>
+                        <set name="currentskill">thorough</set> 
+                    </think>
+                    
+                    Are you thorough in your work?
+                </li>
+                
+                <li value="true">
+                    <srai>LET'S GET STARTED</srai>
+                </li>
+            </condition>
+        </li>
+        
+        <li>
+            <condition name="q10">
+                <li value="false">
+                    <think>
+                        <set name="q10">true</set>
+                        <set name="currentskill">communication</set> 
+                    </think>
+                    
+                    Do you have strong communication skills?
+                </li>
+                
+                <li value="true">
+                    <srai>LET'S GET STARTED</srai>
+                </li>
+            </condition>
+        </li>
+        
+        <li>
+            <condition name="q11">
+                <li value="false">
+                    <think>
+                        <set name="q11">true</set>
+                        <set name="currentskill">test</set> 
+                    </think>
+                    
+                    Do you have the ability to create tests?
+                </li>
+                
+                <li value="true">
+                    <srai>LET'S GET STARTED</srai>
+                </li>
+            </condition>
+        </li>
+        
+        <li>
+            <condition name="q12">
+                <li value="false">
+                    <think>
+                        <set name="q12">true</set>
+                        <set name="currentskill">collaboration</set> 
+                    </think>
+                    
+                    Do you have strong collaboration skills?
+                </li>
+                
+                <li value="true">
+                    <srai>LET'S GET STARTED</srai>
+                </li>
+            </condition>
+        </li>
+        
+        <li>
+            <think><set name="check"><get name="q1"/><get name="q2"/><get name="q3"/><get name="q4"/><get name="q5"/><get name="q6"/><get name="q7"/><get name="q8"/><get name="q9"/><get name="q10"/><get name="q11"/><get name="q12"/></set></think>
+            <condition name="check" value="truetruetruetruetruetruetruetruetruetruetruetrue">
+                <think><set name="allq">true</set></think>
+                You have answered all of the questions your results are: <srai>RESULTS</srai>
+            </condition>
+        </li>
+    </random>
+  </category>
+  
+  <category>
+      <pattern>RESULTS</pattern>
+      
+      <template>WIP</template>
+  </category>
+  
+  <category>
+      <pattern>*</pattern>
+      <template>
+          <condition name="hello" value="false">
+              Say "Hello" to start.
+          </condition>
+          <condition name="allq" value="false">
+              Say "Next" to answer the next question.
+          </condition>
+          <condition name="allq" value="true">
+              You have finished the test! Your results are:
+          </condition>
+      </template>
+  </category>
+</aiml>
