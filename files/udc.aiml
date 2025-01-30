@@ -1,10 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml>
+    <category>
+      <pattern>*</pattern>
+      <template>
+              Say "Hello" to start.
+      </template>
+  </category>
+    
   <category>
     <pattern>HELLO</pattern>
     <template>
-        <think><set name="hello">true</set></think>
-        Hello there! I am the career advice bot. I will help you decide on a career path for your degree based on your strengths! Type "Let's get started" to start.
+        <think>
+            <set name="hello">true</set>
+            <set name="job1name">Software Engineer</set>
+            <set name="job1points">0</set>
+            <set name="job2name">UI/UX Designer</set>
+            <set name="job2points">0</set>
+            <set name="job3name">Network Engineer</set>
+            <set name="job3points">0</set>
+            <set name="job4name">Data Engineer</set>
+            <set name="job4points">0</set>
+            <set name="job5name">Quality Assurance Engineer</set>
+            <set name="job5points">0</set>
+            <set name="q1">false</set>
+            <set name="q2">false</set>
+            <set name="q3">false</set>
+            <set name="q4">false</set>
+            <set name="q5">false</set>
+            <set name="q6">false</set>
+            <set name="q7">false</set>
+            <set name="q8">false</set>
+            <set name="q9">false</set>
+            <set name="q10">false</set>
+            <set name="q11">false</set>
+            <set name="q12">false</set>
+            <set name="allq">false</set>
+            <set name="currentskill"></set>
+            <set name="added">False</set>
+        </think>
+        
+        Hello there! I am the career advice bot. I will help you decide on a career path for your degree based on your strengths! Type "Lets get started" to start.
     </template>
   </category>
   <category>
@@ -13,240 +48,724 @@
   </category>
   
   <category>
-    <pattern>LET'S GET STARTED</pattern>
-    <random>
-        <li>
-            <condition name="q1">
-                <li value ="false">
-                    <think>
-                        <set name="q1">true</set> 
-                        <set name="currentskill">detail</set> 
-                    </think>
-                
-                    Do you have an attention to detail?
-                </li>
-                
-                <li value="true">
-                    <srai>LET'S GET STARTED</srai>
-                </li>
-            </condition>
-        </li>
+    <pattern>LETS GET STARTED</pattern>
         
-        <li>
-            <condition name="q2">
-                <li value="false">
-                    <think>
-                        <set name="q2">true</set> 
-                        <set name="creative">detail</set> 
-                    </think>
+    <template>
+        <think>
+                <set name="added">False</set>
+        </think>
+        <random>
+            <li>
+                <condition name="q1">
+                    <li value="true">
+                        <srai>LETS GET STARTED</srai>
+                    </li>
                     
-                    Are you creative?
-                </li>
-                
-                <li value="true">
-                    <srai>LET'S GET STARTED</srai>
-                </li>
-            </condition>
-        </li>
-        
-        <li>
-            <condition name="q3">
-                <li value="false">
-                    <think>
-                        <set name="q3">true</set>
-                        <set name="coding">detail</set> 
-                    </think>
+                    <li value ="false">
+                        <think>
+                            <set name="q1">true</set> 
+                            <set name="currentskill">detail</set> 
+                        </think>
                     
-                    Do you have strong coding skills?
-                </li>
-                
-                <li value="true">
-                    <srai>LET'S GET STARTED</srai>
-                </li>
-            </condition>
-        </li>
-        
-        <li>
-            <condition name="q4">
-                <li value="false">
-                    <think>
-                        <set name="q4">true</set>
-                        <set name="currentskill">design</set> 
-                    </think>
+                        Do you have an attention to detail?
+                    </li>
+                </condition>
+            </li>
+            
+            <li>
+                <condition name="q2">
+                    <li value="true">
+                        <srai>LETS GET STARTED</srai>
+                    </li>
                     
-                    Are you proficient with digital design tools?
-                </li>
-                
-                <li value="true">
-                    <srai>LET'S GET STARTED</srai>
-                </li>
-            </condition>
-        </li>
-        
-        <li>
-            <condition name="q5">
-                <li value="false">
-                    <think>
-                        <set name="q5">true</set>
-                        <set name="currentskill">network</set> 
-                    </think>
+                    <li value="false">
+                        <think>
+                            <set name="q2">true</set> 
+                            <set name="currentskill">creative</set> 
+                        </think>
+                        
+                        Are you creative?
+                    </li>
+                </condition>
+            </li>
+            
+            <li>
+                <condition name="q3">
+                    <li value="true">
+                        <srai>LETS GET STARTED</srai>
+                    </li>
                     
-                    Do you have an understanding of network protocols?
-                </li>
-                
-                <li value="true">
-                    <srai>LET'S GET STARTED</srai>
-                </li>
-            </condition>
-        </li>
-        
-        <li>
-            <condition name="q6" value="false">
-                <li value="false">
-                    <think>
-                        <set name="q6">true</set>
-                        <set name="currentskill">problemsolving</set> 
-                    </think>
+                    <li value="false">
+                        <think>
+                            <set name="q3">true</set>
+                            <set name="currentskill">coding</set> 
+                        </think>
+                        
+                        Do you have strong coding skills?
+                    </li>
+                </condition>
+            </li>
+            
+            <li>
+                <condition name="q4">
+                    <li value="true">
+                        <srai>LETS GET STARTED</srai>
+                    </li>
                     
-                    Do you have strong problem solving skills?
-                </li>
-                
-                <li value="true">
-                    <srai>LET'S GET STARTED</srai>
-                </li>
-            </condition>
-        </li>
-        
-        <li>
-            <condition name="q7">
-                <li value="false">
+                    <li value="false">
                     <think>
-                        <set name="q7">true</set>
-                        <set name="currentskill">database</set> 
-                    </think>
+                            <set name="q4">true</set>
+                            <set name="currentskill">design</set> 
+                        </think>
+                        
+                        Are you proficient with digital design tools?
+                    </li>
+                </condition>
+            </li>
+            
+            <li>
+                <condition name="q5">
+                    <li value="true">
+                        <srai>LETS GET STARTED</srai>
+                    </li>
                     
-                    Are you comfortable with databases?
-                </li>
-                
-                <li value="true">
-                    <srai>LET'S GET STARTED</srai>
-                </li>
-            </condition>
-        </li>
-        
-        <li>
-            <condition name="q8">
-                <li value="false">
-                    <think>
-                        <set name="q8">true</set>
-                        <set name="currentskill">troubleshooting</set> 
-                    </think>
+                    <li value="false">
+                        <think>
+                            <set name="q5">true</set>
+                            <set name="currentskill">network</set> 
+                        </think>
+                        
+                        Do you have an understanding of network protocols?
+                    </li>
+                </condition>
+            </li>
+            
+            <li>
+                <condition name="q6">
+                    <li value="true">
+                        <srai>LETS GET STARTED</srai>
+                    </li>
+                    <li value="false">
+                        <think>
+                            <set name="q6">true</set>
+                            <set name="currentskill">problemsolving</set> 
+                        </think>
+                        
+                        Do you have strong problem solving skills?
+                    </li>
+                </condition>
+            </li>
+            
+            <li>
+                <condition name="q7">
+                    <li value="true">
+                        <srai>LETS GET STARTED</srai>
+                    </li>
                     
-                    Do you have strong troubleshooting skills?
-                </li>
-                
-                <li value="true">
-                    <srai>LET'S GET STARTED</srai>
-                </li>
-            </condition>
-        </li>
-        
-        <li>
-            <condition name="q9">
-                <li value="false">
-                    <think>
-                        <set name="q9">true</set>
-                        <set name="currentskill">thorough</set> 
-                    </think>
+                    <li value="false">
+                        <think>
+                            <set name="q7">true</set>
+                            <set name="currentskill">database</set> 
+                        </think>
+                        
+                        Are you comfortable with databases?
+                    </li>
+                </condition>
+            </li>
+            
+            <li>
+                <condition name="q8">
+                    <li value="true">
+                        <srai>LETS GET STARTED</srai>
+                    </li>
                     
-                    Are you thorough in your work?
-                </li>
-                
-                <li value="true">
-                    <srai>LET'S GET STARTED</srai>
-                </li>
-            </condition>
-        </li>
-        
-        <li>
-            <condition name="q10">
-                <li value="false">
-                    <think>
-                        <set name="q10">true</set>
-                        <set name="currentskill">communication</set> 
-                    </think>
+                    <li value="false">
+                        <think>
+                            <set name="q8">true</set>
+                            <set name="currentskill">troubleshooting</set> 
+                        </think>
+                        
+                        Do you have strong troubleshooting skills?
+                    </li>
+                </condition>
+            </li>
+            
+            <li>
+                <condition name="q9">
+                    <li value="true">
+                        <srai>LETS GET STARTED</srai>
+                    </li>
                     
-                    Do you have strong communication skills?
-                </li>
-                
-                <li value="true">
-                    <srai>LET'S GET STARTED</srai>
-                </li>
-            </condition>
-        </li>
-        
-        <li>
-            <condition name="q11">
-                <li value="false">
-                    <think>
-                        <set name="q11">true</set>
-                        <set name="currentskill">test</set> 
-                    </think>
+                    <li value="false">
+                        <think>
+                            <set name="q9">true</set>
+                            <set name="currentskill">thorough</set> 
+                        </think>
+                        
+                        Are you thorough in your work?
+                    </li>
+                </condition>
+            </li>
+            
+            <li>
+                <condition name="q10">
+                    <li value="true">
+                        <srai>LETS GET STARTED</srai>
+                    </li>
                     
-                    Do you have the ability to create tests?
-                </li>
-                
-                <li value="true">
-                    <srai>LET'S GET STARTED</srai>
-                </li>
-            </condition>
-        </li>
-        
-        <li>
-            <condition name="q12">
-                <li value="false">
-                    <think>
-                        <set name="q12">true</set>
-                        <set name="currentskill">collaboration</set> 
-                    </think>
+                    <li value="false">
+                        <think>
+                            <set name="q10">true</set>
+                            <set name="currentskill">communication</set> 
+                        </think>
+                        
+                        Do you have strong communication skills?
+                    </li>
+                </condition>
+            </li>
+            
+            <li>
+                <condition name="q11">
+                    <li value="true">
+                        <srai>LETS GET STARTED</srai>
+                    </li>
                     
-                    Do you have strong collaboration skills?
-                </li>
-                
-                <li value="true">
-                    <srai>LET'S GET STARTED</srai>
-                </li>
-            </condition>
-        </li>
-        
-        <li>
-            <think><set name="check"><get name="q1"/><get name="q2"/><get name="q3"/><get name="q4"/><get name="q5"/><get name="q6"/><get name="q7"/><get name="q8"/><get name="q9"/><get name="q10"/><get name="q11"/><get name="q12"/></set></think>
-            <condition name="check" value="truetruetruetruetruetruetruetruetruetruetruetrue">
-                <think><set name="allq">true</set></think>
-                You have answered all of the questions your results are: <srai>RESULTS</srai>
-            </condition>
-        </li>
-    </random>
+                    <li value="false">
+                        <think>
+                            <set name="q11">true</set>
+                            <set name="currentskill">test</set> 
+                        </think>
+                        
+                        Do you have the ability to create tests?
+                    </li>
+                </condition>
+            </li>
+            
+            <li>
+                <condition name="q12">
+                    <li value="true">
+                        <srai>LETS GET STARTED</srai>
+                    </li>
+                    
+                    <li value="false">
+                        <think>
+                            <set name="q12">true</set>
+                            <set name="currentskill">collaboration</set> 
+                        </think>
+                        
+                        Do you have strong collaboration skills?
+                    </li>
+                </condition>
+            </li>
+            
+            <li>
+                <think><set name="check"><get name="q1"/><get name="q2"/><get name="q3"/><get name="q4"/><get name="q5"/><get name="q6"/><get name="q7"/><get name="q8"/><get name="q9"/><get name="q10"/><get name="q11"/><get name="q12"/></set></think>
+                <condition name="check">
+                    <li value="truetruetruetruetruetruetruetruetruetruetruetrue">
+                        <think><set name="allq">true</set></think>
+                        You have answered all of the questions! Your results are: <srai>RESULTS</srai>
+                    </li>
+                    <li>
+                        <srai>NEXT</srai>
+                    </li>
+                </condition>
+            </li>
+        </random>
+    </template>
   </category>
   
   <category>
+      <pattern>NEXT</pattern>
+      <template><srai>LETS GET STARTED</srai></template>
+  </category>
+  
+  <category>
+      <pattern>NEXT QUESTION</pattern>
+      <template><srai>LETS GET STARTED</srai></template>
+  </category>
+  
+    <category>
+            <pattern>YES</pattern>
+        <template>
+                <condition name="currentskill">
+                    <li value="detail">
+                        <condition name="added">
+                            <li value="true">
+                                Type "Next" to get the next question!
+                            </li>
+                            <li value="false">
+                                <think>
+                                    <set name="added">true</set>
+                                    <condition name="job1points">
+                                        <li value="0">
+                                            <set name="job1points">1</set>
+                                        </li>
+                                        <li value="1">
+                                            <set name="job1points">2</set>
+                                        </li>
+                                        <li value="2">
+                                            <set name="job1points">3</set>
+                                        </li>
+                                        <li value="3">
+                                            <set name="job1points">4</set>
+                                        </li>
+                                        <li value="4">
+                                            <set name="job1points">5</set>
+                                        </li>
+                                    </condition>
+                                    
+                                    <condition name="job2points">
+                                        <li value="0">
+                                            <set name="job2points">1</set>
+                                        </li>
+                                        <li value="1">
+                                            <set name="job2points">2</set>
+                                        </li>
+                                        <li value="2">
+                                            <set name="job2points">3</set>
+                                        </li>
+                                        <li value="3">
+                                            <set name="job2points">4</set>
+                                        </li>
+                                        <li value="4">
+                                            <set name="job2points">5</set>
+                                        </li>
+                                    </condition>
+                                    
+                                    <condition name="job5points">
+                                        <li value="0">
+                                            <set name="job5points">1</set>
+                                        </li>
+                                        <li value="1">
+                                            <set name="job5points">2</set>
+                                        </li>
+                                        <li value="2">
+                                            <set name="job5points">3</set>
+                                        </li>
+                                        <li value="3">
+                                            <set name="job5points">4</set>
+                                        </li>
+                                        <li value="4">
+                                            <set name="job5points">5</set>
+                                        </li>
+                                    </condition>
+                                </think>
+                            </li>
+                        </condition>
+                    </li>
+                    <li value="creative">
+                        <condition name="added">
+                            <li value="true">
+                                Type "Next" to get the next question!
+                            </li>
+                            <li value="false">
+                                <think>
+                                    <set name="added">true</set>
+                                    <condition name="job2points">
+                                        <li value="0">
+                                            <set name="job2points">1</set>
+                                        </li>
+                                        <li value="1">
+                                            <set name="job2points">2</set>
+                                        </li>
+                                        <li value="2">
+                                            <set name="job2points">3</set>
+                                        </li>
+                                        <li value="3">
+                                            <set name="job2points">4</set>
+                                        </li>
+                                        <li value="4">
+                                            <set name="job2points">5</set>
+                                        </li>
+                                    </condition>
+                                </think>
+                            </li>
+                        </condition>
+                    </li>
+                    <li value="coding">
+                        <condition name="added">
+                            <li value="true">
+                                Type "Next" to get the next question!
+                            </li>
+                            <li value="false">
+                                <think>
+                                    <set name="added">true</set>
+                                    <condition name="job1points">
+                                        <li value="0">
+                                            <set name="job1points">2</set>
+                                        </li>
+                                        <li value="1">
+                                            <set name="job1points">3</set>
+                                        </li>
+                                        <li value="2">
+                                            <set name="job1points">4</set>
+                                        </li>
+                                        <li value="3">
+                                            <set name="job1points">5</set>
+                                        </li>
+                                        <li value="4">
+                                            <set name="job1points">6</set>
+                                        </li>
+                                    </condition>
+                                    
+                                    <condition name="job5points">
+                                        <li value="0">
+                                            <set name="job5points">1</set>
+                                        </li>
+                                        <li value="1">
+                                            <set name="job5points">2</set>
+                                        </li>
+                                        <li value="2">
+                                            <set name="job5points">3</set>
+                                        </li>
+                                        <li value="3">
+                                            <set name="job5points">4</set>
+                                        </li>
+                                        <li value="4">
+                                            <set name="job5points">5</set>
+                                        </li>
+                                    </condition>
+                                </think>
+                            </li>
+                        </condition>
+                    </li>
+                    <li value="design">
+                        <condition name="added">
+                            <li value="true">
+                                Type "Next" to get the next question!
+                            </li>
+                            <li value="false">
+                                <think>
+                                    <set name="added">true</set>
+                                    <condition name="job2points">
+                                        <li value="0">
+                                            <set name="job2points">2</set>
+                                        </li>
+                                        <li value="1">
+                                            <set name="job2points">3</set>
+                                        </li>
+                                        <li value="2">
+                                            <set name="job2points">4</set>
+                                        </li>
+                                        <li value="3">
+                                            <set name="job2points">5</set>
+                                        </li>
+                                        <li value="4">
+                                            <set name="job2points">6</set>
+                                        </li>
+                                    </condition>
+                                </think>
+                            </li>
+                        </condition>
+                    </li>
+                    <li value="network">
+                        <condition name="added">
+                            <li value="true">
+                                Type "Next" to get the next question!
+                            </li>
+                            <li value="false">
+                                <think>
+                                    <set name="added">true</set>
+                                    <condition name="job3points">
+                                        <li value="0">
+                                            <set name="job3points">3</set>
+                                        </li>
+                                        <li value="1">
+                                            <set name="job3points">4</set>
+                                        </li>
+                                        <li value="2">
+                                            <set name="job3points">5</set>
+                                        </li>
+                                        <li value="3">
+                                            <set name="job3points">6</set>
+                                        </li>
+                                        <li value="4">
+                                            <set name="job3points">7</set>
+                                        </li>
+                                    </condition>
+                                </think>
+                            </li>
+                        </condition>
+                    </li>
+                    <li value="problemsolving">
+                        <condition name="added">
+                            <li value="true">
+                                Type "Next" to get the next question!
+                            </li>
+                            <li value="false">
+                                <think>
+                                    <set name="added">true</set>
+                                    <condition name="job1points">
+                                        <li value="0">
+                                            <set name="job1points">1</set>
+                                        </li>
+                                        <li value="1">
+                                            <set name="job1points">2</set>
+                                        </li>
+                                        <li value="2">
+                                            <set name="job1points">3</set>
+                                        </li>
+                                        <li value="3">
+                                            <set name="job1points">4</set>
+                                        </li>
+                                        <li value="4">
+                                            <set name="job1points">5</set>
+                                        </li>
+                                    </condition>
+                                    
+                                    <condition name="job3points">
+                                        <li value="0">
+                                            <set name="job3points">1</set>
+                                        </li>
+                                        <li value="1">
+                                            <set name="job3points">2</set>
+                                        </li>
+                                        <li value="2">
+                                            <set name="job3points">3</set>
+                                        </li>
+                                        <li value="3">
+                                            <set name="job3points">4</set>
+                                        </li>
+                                        <li value="4">
+                                            <set name="job3points">5</set>
+                                        </li>
+                                    </condition>
+                                    
+                                    <condition name="job5points">
+                                        <li value="0">
+                                            <set name="job5points">1</set>
+                                        </li>
+                                        <li value="1">
+                                            <set name="job5points">2</set>
+                                        </li>
+                                        <li value="2">
+                                            <set name="job5points">3</set>
+                                        </li>
+                                        <li value="3">
+                                            <set name="job5points">4</set>
+                                        </li>
+                                        <li value="4">
+                                            <set name="job5points">5</set>
+                                        </li>
+                                    </condition>
+                                </think>
+                            </li>
+                        </condition>
+                    </li>
+                    <li value="database">
+                        <condition name="added">
+                            <li value="true">
+                                Type "Next" to get the next question!
+                            </li>
+                            <li value="false">
+                                <think>
+                                    <set name="added">true</set>
+                                    <condition name="job4points">
+                                        <li value="0">
+                                            <set name="job4points">3</set>
+                                        </li>
+                                        <li value="1">
+                                            <set name="job4points">4</set>
+                                        </li>
+                                        <li value="2">
+                                            <set name="job4points">5</set>
+                                        </li>
+                                        <li value="3">
+                                            <set name="job4points">6</set>
+                                        </li>
+                                        <li value="4">
+                                            <set name="job4points">7</set>
+                                        </li>
+                                    </condition>
+                                </think>
+                            </li>
+                        </condition>
+                    </li>
+                    <li value="troubleshooting">
+                        <condition name="added">
+                            <li value="true">
+                                Type "Next" to get the next question!
+                            </li>
+                            <li value="false">
+                                <think>
+                                    <set name="added">true</set>
+                                    
+                                    <condition name="job5points">
+                                        <li value="0">
+                                            <set name="job5points">1</set>
+                                        </li>
+                                        <li value="1">
+                                            <set name="job5points">2</set>
+                                        </li>
+                                        <li value="2">
+                                            <set name="job5points">3</set>
+                                        </li>
+                                        <li value="3">
+                                            <set name="job5points">4</set>
+                                        </li>
+                                        <li value="4">
+                                            <set name="job5points">5</set>
+                                        </li>
+                                    </condition>
+                                </think>
+                            </li>
+                        </condition>
+                    </li>
+                    <li value="thorough">
+                        <condition name="added">
+                            <li value="true">
+                                Type "Next" to get the next question!
+                            </li>
+                            <li value="false">
+                                <think>
+                                    <set name="added">true</set>
+                                    <condition name="job4points">
+                                        <li value="0">
+                                            <set name="job4points">1</set>
+                                        </li>
+                                        <li value="1">
+                                            <set name="job4points">2</set>
+                                        </li>
+                                        <li value="2">
+                                            <set name="job4points">3</set>
+                                        </li>
+                                        <li value="3">
+                                            <set name="job4points">4</set>
+                                        </li>
+                                        <li value="4">
+                                            <set name="job4points">5</set>
+                                        </li>
+                                    </condition>
+                                    
+                                    <condition name="job5points">
+                                        <li value="0">
+                                            <set name="job5points">1</set>
+                                        </li>
+                                        <li value="1">
+                                            <set name="job5points">2</set>
+                                        </li>
+                                        <li value="2">
+                                            <set name="job5points">3</set>
+                                        </li>
+                                        <li value="3">
+                                            <set name="job5points">4</set>
+                                        </li>
+                                        <li value="4">
+                                            <set name="job5points">5</set>
+                                        </li>
+                                    </condition>
+                                </think>
+                            </li>
+                        </condition>
+                    </li>
+                    <li value="communication">
+                        <condition name="added">
+                            <li value="true">
+                                Type "Next" to get the next question!
+                            </li>
+                            <li value="false">
+                                <think>
+                                    <set name="added">true</set>
+                                    <condition name="job2points">
+                                        <li value="0">
+                                            <set name="job2points">1</set>
+                                        </li>
+                                        <li value="1">
+                                            <set name="job2points">2</set>
+                                        </li>
+                                        <li value="2">
+                                            <set name="job2points">3</set>
+                                        </li>
+                                        <li value="3">
+                                            <set name="job2points">4</set>
+                                        </li>
+                                        <li value="4">
+                                            <set name="job2points">5</set>
+                                        </li>
+                                    </condition>
+                                </think>
+                            </li>
+                        </condition>
+                    </li>
+                    <li value="test">
+                        <condition name="added">
+                            <li value="true">
+                                Type "Next" to get the next question!
+                            </li>
+                            <li value="false">
+                                <think>
+                                    <set name="added">true</set>
+                                    
+                                </think>
+                            </li>
+                        </condition>
+                    </li>
+                    <li value="collaboration">
+                        <condition name="added">
+                            <li value="true">
+                                Type "Next" to get the next question!
+                            </li>
+                            <li value="false">
+                                <think>
+                                    <set name="added">true</set>
+                                    
+                                </think>
+                            </li>
+                        </condition>
+                    </li>
+                    <li value="None">
+                        Type "Lets get started" to get started
+                    </li>
+                </condition>
+                <srai>LETS GET STARTED</srai>
+        </template>
+    </category>
+  
+    <category>
+        <pattern>NO</pattern>
+        <template>
+            <srai>LETS GET STARTED</srai>
+        </template>
+    </category>
+
+    <category>
       <pattern>RESULTS</pattern>
       
-      <template>WIP</template>
-  </category>
-  
-  <category>
-      <pattern>*</pattern>
       <template>
-          <condition name="hello" value="false">
-              Say "Hello" to start.
-          </condition>
-          <condition name="allq" value="false">
-              Say "Next" to answer the next question.
-          </condition>
-          <condition name="allq" value="true">
-              You have finished the test! Your results are:
+          <condition>
+                <li name="job3points" value="7">You should look into being a <get name="job3name"/>!</li>
+                <li name="job3points" value="6">You should look into being a <get name="job3name"/>!</li>
+                <li name="job4points" value="7">You should look into being a <get name="job4name"/>!</li>
+                <li name="job4points" value="6">You should look into being a <get name="job4name"/>!</li>
+                <li name="job2points" value="6">You should look into being a <get name="job2name"/>!</li>
+                <li name="job4points" value="6">You should look into being a <get name="job4name"/>!</li>
+                <li name="job1points" value="5">You should look into being a <get name="job1name"/>!</li>
+                <li name="job2points" value="5">You should look into being a <get name="job2name"/>!</li>
+                <li name="job3points" value="5">You should look into being a <get name="job3name"/>!</li>
+                <li name="job4points" value="5">You should look into being a <get name="job4name"/>!</li>
+                <li name="job5points" value="5">You should look into being a <get name="job5name"/>!</li>
+                <li name="job1points" value="4">You should look into being a <get name="job1name"/>!</li>
+                <li name="job2points" value="4">You should look into being a <get name="job2name"/>!</li>
+                <li name="job3points" value="4">You should look into being a <get name="job3name"/>!</li>
+                <li name="job4points" value="4">You should look into being a <get name="job4name"/>!</li>
+                <li name="job5points" value="4">You should look into being a <get name="job5name"/>!</li>
+                <li name="job1points" value="3">You should look into being a <get name="job1name"/>!</li>
+                <li name="job2points" value="3">You should look into being a <get name="job2name"/>!</li>
+                <li name="job3points" value="3">You should look into being a <get name="job3name"/>!</li>
+                <li name="job4points" value="3">You should look into being a <get name="job4name"/>!</li>
+                <li name="job5points" value="3">You should look into being a <get name="job5name"/>!</li>
+                <li name="job1points" value="2">You should look into being a <get name="job1name"/>!</li>
+                <li name="job2points" value="2">You should look into being a <get name="job2name"/>!</li>
+                <li name="job3points" value="2">You should look into being a <get name="job3name"/>!</li>
+                <li name="job4points" value="2">You should look into being a <get name="job4name"/>!</li>
+                <li name="job5points" value="2">You should look into being a <get name="job5name"/>!</li>
+                <li name="job1points" value="1">You should look into being a <get name="job1name"/>!</li>
+                <li name="job2points" value="1">You should look into being a <get name="job2name"/>!</li>
+                <li name="job3points" value="1">You should look into being a <get name="job3name"/>!</li>
+                <li name="job4points" value="1">You should look into being a <get name="job4name"/>!</li>
+                <li name="job5points" value="1">You should look into being a <get name="job5name"/>!</li>
+                <li name="job1points" value="0">You should look into being a <get name="job1name"/>!</li>
           </condition>
       </template>
-  </category>
+    </category>
 </aiml>
